@@ -1,0 +1,13 @@
+{# app/Resources/TwigBundle/views/Exception/error404.html.twig #}
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    <h1>404 Page not found</h1>
+
+
+    The requested page couldn't be located.
+    <br>
+    Checkout for any URL misspelling or return to the index
+    <br>
+    <a href="{{ path('client_index') }}"class="btn warning">Client Index</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+    <h1>Clients list</h1>
+        {% for client in clients %}
+        <ul class="collection">
+            <li class="collection-item avatar">
+                <img src="{{ vich_uploader_asset(client, 'photoFile')}}" width="60" height="60" alt="Photo de {{ client.nom }} {{ client.prenom }}"class="circle">
+                <p>Nom :{{ client.nom }} <br>
+                    Prenom :{{ client.prenom }} <br>
+                    Age : {{ client.age }}
+                </p>
+                <a href="{{ path('client_show', { 'id': client.id }) }}"class="btn">show</a>
+                <a href="{{ path('client_edit', { 'id': client.id }) }}"class="btn">edit</a>
+            </li>
+        </ul>
+        {% endfor %}
+
+    <ul>
+        <li>
+            <a href="{{ path('client_new') }}"class="btn success">Create a new client</a>
+        </li>
+    </ul>
+{% endblock %}
+

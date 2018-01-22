@@ -1,0 +1,39 @@
+{% extends 'front/base.html.twig' %}
+
+{% block body %}
+
+    <h1>Client</h1>
+
+    <table>
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ client.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ client.nom }}</td>
+        </tr>
+        <tr>
+            <th>Prenom</th>
+            <td>{{ client.prenom }}</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>{{ client.age }}</td>
+        </tr>
+        <tr>
+            <th>Photo</th>
+            <td><img class="materialboxed" src="{{ vich_uploader_asset(client, 'photoFile')}}" width="60" height="60" alt="Photo de {{ client.nom }} {{ client.prenom }}"/></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('client_edit', { 'id': client.id }) }}" class="btn">Edit</a>
+            <a href="{{ path('client_index') }}" class="btn">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
